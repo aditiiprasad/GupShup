@@ -16,9 +16,9 @@ const ChatPage = () => {
  },[])
 
   return (
-    <div>
+    <div >
       {chats.map( (chat) =>  (
-        <div> {chat.chatName}</div>
+        <div key = {chat._id}> {chat.chatName}</div>
     ))}
     </div>
   )
