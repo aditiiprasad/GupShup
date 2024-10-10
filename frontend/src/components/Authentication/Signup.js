@@ -9,11 +9,16 @@ const [email, setEmail] = useState();
 const [confirmpassword, setConfirmpassword] = useState();
 const [password, setPassword] = useState();
 const [pic, setPic] = useState();
+const [loading, setLoading] = useState(false);
 
 const handleClick = () => setShow(!show);
 
 const postDetails = (pics) => {
 
+setLoading(true);
+if (pic ===  undefined){
+  //https://api.cloudinary.com/v1_1/dtczdc7re/image/upload 
+}
 }
 
 const submitHandler = () => {
