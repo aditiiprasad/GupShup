@@ -71,6 +71,7 @@ const submitHandler = async() => {
           <FormLabel>Email</FormLabel>
             <Input
             borderColor={"red.600"}
+            value={email}
             placeholder='Enter your Email'
             onChange={(e) =>setEmail(e.target.value) }
             />
@@ -83,6 +84,7 @@ const submitHandler = async() => {
               borderColor={"red.600"}
               type={show ? "text": "password"}
               placeholder='Enter your Password'
+              value={password}
               onChange={(e) =>setPassword(e.target.value) }
              />
              <InputRightElement width="4.5rem">
