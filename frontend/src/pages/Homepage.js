@@ -7,18 +7,18 @@ import {
     Tab,
     TabPanels,
     TabPanel,
-    Tabs} from '@chakra-ui/react';
+    Tabs,
+    Image} from '@chakra-ui/react';
 import React from 'react'
 import Login from '../components/Authentication/Login';
 import Signup from '../components/Authentication/Signup';
-
+import logo from "../images/logo.png";
 
 const Homepage = () => {
   return <Container>
 
   <Box
-  d='flex'
-  justifyContent='center'
+  
   p={3}
   bg={"black"}
   w="100%"
@@ -29,9 +29,12 @@ const Homepage = () => {
   textColor={"white"}
   
   >
-    <Text fontSize='4xl' fontFamily="Work sans" color="red">
+    <Flex align="center" justify="space-between">
+    <Image src={logo} alt="GupShup Logo" boxSize="90px" />
+    <Text fontSize='4xl' fontFamily="Work sans" color="red" fontWeight="semibold">
         Gup Shup
     </Text>
+    </Flex>
   </Box>
 
   <Box bg="black" w="100%" p={4} borderRadius="lg" borderWidth="1px" borderColor={"red"} color={"white"}>
