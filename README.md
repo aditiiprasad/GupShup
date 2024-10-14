@@ -8,15 +8,15 @@
 
 ## Features
 
-- **Authentication**: Secure user login and registration.
-- **Real-Time Communication**: Powered by Socket.io for instant messaging.
-- **Typing Indicators**: See when the other person is typing.
-- **One-to-One Chat**: Direct messaging between users.
-- **Search Users**: Find and start chats with other users.
-- **Create Group Chats**: Start group conversations with multiple users.
-- **Group Management**: Add or remove users from groups.
-- **Notifications**: Receive real-time notifications for new messages and group activity.
-- **View Profiles**: Check out other users' profiles with details and status.
+- `Authentication` : Secure user login and registration.
+- `Real-Time Communication` : Powered by Socket.io for instant messaging.
+- `Typing Indicators`: See when the other person is typing.
+- `One-to-One Chat` : Direct messaging between users.
+- `Search Users` : Find and start chats with other users.
+- `Create Group Chats` : Start group conversations with multiple users.
+- `Group Management`: Add or remove users from groups.
+- `Notifications`: Receive real-time notifications for new messages and group activity.
+- `View Profiles` : Check out other users' profiles with details and status.
 
 ## Tech Stack
 
