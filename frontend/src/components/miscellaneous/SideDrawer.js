@@ -1,7 +1,9 @@
 import React from 'react' ;
 import { useState } from "react";
-import { Box, Button, Text, Tooltip , Image, Menu, MenuButton } from '@chakra-ui/react';
+import { Box, Button, Text, Tooltip , Image, Menu, MenuButton, MenuList, Avatar, MenuItem, MenuDivider } from '@chakra-ui/react';
 import logo from "../../images/logo.png";
+import { BellIcon, ChevronDownIcon } from "@chakra-ui/icons";
+import { ChatState } from '../../Context/ChatProvider';
 
 
 const SideDrawer = () => {
@@ -11,6 +13,8 @@ const SideDrawer = () => {
   const [loading, setLoading] = useState(false);
   const [loadingChat, setLoadingChat] = useState(false);
 
+  const {user} = ChatState();
+  
 
   return (
     <>
@@ -22,7 +26,7 @@ const SideDrawer = () => {
         w="100%"
         p="5px 10px 5px 10px"  
         rounded="2xl"       
-        background="rgba(201, 73, 73, 0.2)" // Very translucent red background
+        background="rgba(201, 73, 73, 0.2)" 
         display="flex"
         >
   <Tooltip  hasArrow placement="bottom-end">
@@ -30,9 +34,9 @@ const SideDrawer = () => {
  <Button variant="ghost"
          colorScheme="red"
          _hover={{
-          bg: "red.500", // Background color on hover
-          color: "white", // Text color on hover
-          opacity: 0.8, // Make it translucent on hover
+          bg: "red.500", 
+          color: "white", 
+          opacity: 0.8, 
         }}
         _focus={{ boxShadow: "none" }} 
          >
@@ -60,15 +64,47 @@ const SideDrawer = () => {
       </Text>
     
   </Box>
-
+  <Box display="flex" alignItems="center" gap={3}>
   <Menu>
 
     <MenuButton  p={1}>
-
+         <BellIcon fontSize="4xl" m={1} color="red"/>
     </MenuButton>
-
+    {/* <MenuList>
+      
+    </MenuList>   */}
   </Menu>
+  <Menu colorScheme="red">
 
+  <MenuButton  as={Button} bg="white" rightIcon={<ChevronDownIcon />} variant="ghost"
+         
+         _hover={{
+          bg: "red", 
+          color: "white", 
+          opacity: 0.8, 
+        }}
+        _focus={{ boxShadow: "none" }}
+         background="transparent" 
+         color="red"
+         >
+         <Avatar size="sm"
+                cursor="pointer"
+                name={user.name}
+                src={user.pic}
+                />
+          
+  </MenuButton>
+
+   <MenuList bg="red.600" color="white" borderColor="red.500" _focus={{
+                bg: "red.600",
+              }}
+              >
+    <MenuItem _hover={{ bg: "red.400" }} backgroundColor="red.500"color="white"  fontWeight="medium">My Profile</MenuItem>
+    
+    <MenuItem _hover={{ bg: "red.400" }} backgroundColor="red.500"color="white" fontWeight="medium">Logout</MenuItem>
+   </MenuList>
+  </Menu>
+  </Box>
 </Box>
 
 
