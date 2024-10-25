@@ -1,9 +1,14 @@
 import React from 'react' ;
 import { useState } from "react";
-import { Box, Button, Text, Tooltip , Image, Menu, MenuButton, MenuList, Avatar, MenuItem, MenuDivider } from '@chakra-ui/react';
+import { Box, Button, Text, Tooltip , Image, Menu, MenuButton, MenuList, Avatar, MenuItem, MenuDivider, Drawer ,DrawerBody,
+  DrawerContent, DrawerHeader, DrawerOverlay,} from '@chakra-ui/react';
 import logo from "../../images/logo.png";
 import { BellIcon, ChevronDownIcon } from "@chakra-ui/icons";
 import { ChatState } from '../../Context/ChatProvider';
+import ProfileModal from './ProfileModal';
+import { useNavigate } from 'react-router-dom';
+import { useDisclosure } from "@chakra-ui/hooks";
+
 
 
 const SideDrawer = () => {
@@ -14,7 +19,13 @@ const SideDrawer = () => {
   const [loadingChat, setLoadingChat] = useState(false);
 
   const {user} = ChatState();
+  const navigate = useNavigate();
+  const { isOpen, onOpen, onClose } = useDisclosure()
   
+  const logoutHandler = () => {
+    localStorage.removeItem("userInfo");
+    navigate("/"); 
+  };
 
   return (
     <>
@@ -74,9 +85,10 @@ const SideDrawer = () => {
       
     </MenuList>   */}
   </Menu>
-  <Menu colorScheme="red">
+  <Menu >
 
-  <MenuButton  as={Button} bg="white" rightIcon={<ChevronDownIcon />} variant="ghost"
+  <MenuButton  as={Button}  rightIcon={<ChevronDownIcon />} variant="ghost"
+
          
          _hover={{
           bg: "red", 
@@ -84,7 +96,7 @@ const SideDrawer = () => {
           opacity: 0.8, 
         }}
         _focus={{ boxShadow: "none" }}
-         background="transparent" 
+         backgroundColor="transparent" 
          color="red"
          >
          <Avatar size="sm"
@@ -99,13 +111,44 @@ const SideDrawer = () => {
                 bg: "red.600",
               }}
               >
+
+     <ProfileModal user={user}>
+
     <MenuItem _hover={{ bg: "red.400" }} backgroundColor="red.500"color="white"  fontWeight="medium">My Profile</MenuItem>
-    
-    <MenuItem _hover={{ bg: "red.400" }} backgroundColor="red.500"color="white" fontWeight="medium">Logout</MenuItem>
+     
+    </ProfileModal>
+
+    <MenuItem _hover={{ bg: "red.400" }} 
+              backgroundColor="red.500"
+              color="white" 
+              fontWeight="medium" 
+              onClick={logoutHandler}
+              >Logout</MenuItem>
    </MenuList>
   </Menu>
   </Box>
 </Box>
+
+<Drawer placement="left" onClose={onClose} isOpen={isOpen}>
+<DrawerOverlay />
+<DrawerContent>
+
+<DrawerHeader borderBottomWidth="1px">
+Search Users
+</DrawerHeader>
+
+</DrawerContent>
+
+<DrawerBody >
+
+<Box>
+
+
+</Box>
+
+</DrawerBody>
+
+</Drawer>
 
 
     </>
