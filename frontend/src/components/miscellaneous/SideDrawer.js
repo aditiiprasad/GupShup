@@ -11,6 +11,12 @@ import { useDisclosure } from "@chakra-ui/hooks";
 import { useToast } from '@chakra-ui/react'
 import axios from 'axios';
 import ChatLoading from '../ChatLoading';
+import UserListItem from '../UserAvatar/UserListItem';
+
+
+
+
+
 
 
 
@@ -204,9 +210,10 @@ const SideDrawer = () => {
   {loading ? (<ChatLoading />  ): (searchResult?.map(user => (
     <UserListItem 
     key={user._id}
-                  user={user}
+                 
                   handleFunction={() => accessChat(user._id)}
     />
+   
   )) )}
 </DrawerBody> 
 </DrawerContent>
