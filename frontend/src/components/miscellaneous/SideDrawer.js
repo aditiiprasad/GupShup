@@ -140,7 +140,7 @@ const SideDrawer = () => {
   </Menu>
   <Menu >
 
-  <MenuButton  as={Button}  rightIcon={<ChevronDownIcon />} variant="ghost"
+  <MenuButton  as={Button} colorScheme='black' rightIcon={<ChevronDownIcon />} variant="ghost"
 
          
          _hover={{
